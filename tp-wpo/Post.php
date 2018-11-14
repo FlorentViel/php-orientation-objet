@@ -10,11 +10,21 @@ abstract class Post implements InterfacePost
     private $title;
 
     /**
-    * slug
+    * Slug
     * @var string
     */
 
+
     private $slug;
+
+    
+    /**
+    * Contenue du poste
+    * @var string
+    */
+
+    private $content;
+
 
     /**
     * Nom de l'auteur
@@ -29,6 +39,7 @@ abstract class Post implements InterfacePost
     */
 
     private $date_creat;
+
     
     /**
     * Date de création
@@ -57,16 +68,17 @@ abstract class Post implements InterfacePost
     * @var boolean
     */
 
-    private $type = false;
+    private $state = false;
 
     /**
     * CONSTRUCTOR
     */
 
-    public function __construct($_title, $_slug, $_author, $_date_creat, $_category, $_key) 
+    public function __construct(string $_title, string $_slug, string $_content, string $_author, $_date_creat, string $_category, string $_key) 
     {
         $this->title = $_title;
         $this->slug = $_slug;
+        $this->content = $_content;
         $this->author = $_author;
         $this->date_creat = $_date_creat;
         $this->category = $_category;
@@ -115,6 +127,26 @@ abstract class Post implements InterfacePost
     {
         return $this->slug;
     }
+
+      /**
+    * SETTER CONTENT
+    */
+
+    public function setContent($_content)
+    {
+        $this->content = $this->formatContent($_content);
+        return $this;
+    }
+
+    /**
+    * GETTER SLUG
+    */
+
+    public function getContent()
+    {
+        return $this->content;
+    }
+
 
 
     /**
@@ -195,6 +227,7 @@ abstract class Post implements InterfacePost
     {
         return $this->key;
     }
+
 
 
 }
