@@ -18,7 +18,6 @@ abstract class Vehicule
         $this->setModel() = $model;
         $this->setColor() = $color;
         $this->setDriver() = $driver;
-
     }
 
 }
