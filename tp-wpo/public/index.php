@@ -6,8 +6,14 @@ include "InterfacePost.php";
 include "Post.php";
 
 function __autoload($classname) {
-    include $classname . '.php';
+    include_once '../private/controllers/'.$classname . '.php';
 }
+spl_autoload_register('autoload_controllers');
+
+// Préparation du tableau pour afficher les articles
+$articles = [];
+
+
 
 
 $date = new DateTime();

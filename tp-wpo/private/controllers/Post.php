@@ -46,7 +46,7 @@ abstract class Post implements InterfacePost
     * @var DATETIME()
     */
 
-    private $date_publish = null;
+    private $date_publish;
 
     /**
     * Categorie du poste
@@ -68,23 +68,23 @@ abstract class Post implements InterfacePost
     * @var boolean
     */
 
-    private $state = false;
+        //private $state = false;
 
     /**
     * CONSTRUCTOR
     */
 
-    public function __construct(string $_title, string $_slug, string $_content, string $_author, $_date_creat, string $_category, string $_key) 
-    {
-        $this->title = $_title;
-        $this->slug = $_slug;
-        $this->content = $_content;
-        $this->author = $_author;
-        $this->date_creat = $_date_creat;
-        $this->category = $_category;
-        $this->key = $_key;
+    // public function __construct(string $_title, string $_slug, string $_content, string $_author, $_date_creat, string $_category, string $_key) 
+    // {
+    //     $this->title = $_title;
+    //     $this->slug = $_slug;
+    //     $this->content = $_content;
+    //     $this->author = $_author;
+    //     $this->date_creat = $_date_creat;
+    //     $this->category = $_category;
+    //     $this->key = $_key;
 
-    }
+    // }
 
     /**
     * SETTER / GETTER
@@ -97,6 +97,9 @@ abstract class Post implements InterfacePost
     public function setTitle($_title)
     {
         $this->title = $this->formatTitle($_title);
+        $this->setSlug($this->title);
+
+
         return $this;
     }
 
@@ -115,7 +118,8 @@ abstract class Post implements InterfacePost
 
     public function setSlug($_slug)
     {
-        $this->slug = $this->formatSlug($_slug);
+
+        $this->slug = Utils::slugify($_slug);
         return $this;
     }
 
