@@ -13,10 +13,9 @@ interface InterfacePost {
     public function getAuthor();
     public function setDate_creat($_date_creat);
     public function getDate_creat();
-    public function setDate_publish($_date_publish);
-    public function getDate_publish();
     public function setCategory($_category);
+    public function getCategory();
     public function setKey($_key);
-    public function getKey();category
+    public function getKey();
 
 }

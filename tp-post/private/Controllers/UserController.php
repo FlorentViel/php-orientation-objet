@@ -1,6 +1,7 @@
 <?php
 
-class User {
+namespace Controllers;
+class UserController {
     private $firstname;
     private $lastname;
     private $email;
@@ -92,6 +93,3 @@ class User {
         return $this;
     }
 }
-
-
-
